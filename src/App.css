@@ -22,7 +22,21 @@
 .App-link {
   color: #61dafb;
 }
+.bg {
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("./images/cityscape.jpg");
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
+Navbar {
+  position: absolute;
+
+  background-color: transparent !important;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -31,3 +45,79 @@
     transform: rotate(360deg);
   }
 }
+
+/* new added styles */
+@import url("https://fonts.googleapis.com/css?family=Leckerli+One");
+.title {
+  font-family: "Leckerli One", cursive;
+  text-align: center;
+  font-size: 35px;
+  color: rgb(234, 255, 0) !important;
+  /* background-color: rgb(84, 84, 84); */
+  /* text-shadow: rgb(0, 0, 0) 8px 7px 2px; */
+}
+.label {
+  font-family: "Leckerli One", cursive;
+  /* text-align: center; */
+  font-size: 22px;
+  color: rgb(234, 255, 0) !important;
+  padding: 0 1em;
+}
+
+/* .dashboard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #282c34;
+  border-radius: 5px;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.25));
+} */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+.flex-container {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dashboard {
+  width: 40%;
+  border: 1px solid #282c34;
+  border-radius: 5px;
+  padding: 2em;
+  flex-direction: row;
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.25));
+}
+.exploreButton {
+  background: rgb(234, 255, 0) !important;
+  border: 1px solid #282c34;
+  border-radius: 5px;
+  margin: 0 auto;
+  display: flex;
+}
+.buttonText {
+  font-family: "Leckerli One", cursive;
+  font-size: 22px;
+  color: rgb(0, 0, 0);
+}
+/* .flex-item {
+  background-color: tomato;
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  line-height: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+} */
