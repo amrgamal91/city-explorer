@@ -8,9 +8,11 @@
     "bootstrap-select-country": "^4.1.0",
     "jquery": "^3.4.1",
     "react": "^16.9.0",
+    "react-async-script-loader": "^0.3.0",
     "react-bootstrap": "^1.0.0-beta.12",
     "react-country-region-selector": "^1.4.4",
     "react-dom": "^16.9.0",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1"
   },
   "scripts": {

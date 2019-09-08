@@ -1,16 +1,16 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import AppNavbar from "./components/AppNavbar";
-import Container from "./components/Container";
-import Footer from "./components/Footer";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
+import Main from "./components/Main";
+import Result from "./components/Result";
 function App() {
   return (
-    <div className="bg">
-      <AppNavbar />
-      <Container />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Main}></Route>
+        <Route path="/result" component={Result}></Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
