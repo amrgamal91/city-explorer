@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Place from "./Place";
-import { getFSLocations, getFSDetails } from "../apis/foursquare";
+import { getFSPlaces, getFSDetails } from "../apis/foursquare";
 import noImage from "../images/no-image-available.png";
 import fsButton from "../images/foursquare-button.png";
 import foodIcon from "../images/food-marker.png";
 import spinner from "../images/circles-loader.svg";
 import PropTypes from "prop-types";
 
-class ListView extends Component {
+class PlacesList extends Component {
   // define the propTypes before use
   static propTypes = {
     map: PropTypes.object.isRequired,
@@ -26,7 +26,12 @@ class ListView extends Component {
   };
   // using react lifeCycle
   componentDidMount() {
-    getFSLocations(this.props.mapCenter)
+    getFSPlaces(
+      this.props.mapCenter,
+      this.props.region,
+      this.props.country,
+      this.props.venueType
+    )
       .then(places => {
         this.setState({
           allPlaces: places,
@@ -133,8 +138,10 @@ class ListView extends Component {
           })
           .catch(error => {
             marker.infoContent = `<div class="venue-error"  role="alert">
-                  <h3>Foursquare Venue Details request for ${marker.title} failed</h3>
-                  <p>Try again later...</p>
+                  <h3>Foursquare Venue Details request for ${
+                    marker.title
+                  } failed</h3>
+                  <p>Try again later... ${JSON.stringify(error)}</p>
                 </div>`;
             // set content and open window
             infowindow.setContent(marker.infoContent);
@@ -234,4 +241,4 @@ class ListView extends Component {
   }
 }
 
-export default ListView;
+export default PlacesList;

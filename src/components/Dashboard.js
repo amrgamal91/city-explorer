@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = { country: "", region: "" };
+    this.state = { country: "", region: "", venueType: "Looking for..." };
   }
 
   selectCountry(val) {
@@ -16,8 +16,12 @@ class Dashboard extends Component {
     this.setState({ region: val });
   }
 
+  handleVenueSelect(event) {
+    this.setState({ venueType: event.target.value });
+  }
+
   render() {
-    const { country, region } = this.state;
+    const { country, region, venueType } = this.state;
     return (
       <div className="flex-container">
         <div className="dashboard">
@@ -40,14 +44,29 @@ class Dashboard extends Component {
           </div>
           <div className="row input-group mb-3">
             <label className="label  col-md-5">Venue Type</label>{" "}
-            <select className="custom-select" id="inputGroupSelect01">
-              <option selected>Select Venue...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>{" "}
+            <select
+              className="custom-select"
+              id="inputGroupSelect01"
+              value={this.state.venue}
+              onChange={this.handleVenueSelect.bind(this)}
+            >
+              <option value="looking For">looking for...</option>
+              <option value="food">Resturants</option>
+              <option value="cafes">Cafes</option>
+              <option value="ArtsAndEntertainment">Art & Entertainment</option>
+              <option value="Museums">Museums</option>
+              <option value="CollegeAndUniversity">College & University</option>
+              <option value="gym">Gyms</option>{" "}
             </select>{" "}
           </div>{" "}
-          <Link to="/result">
+          <Link
+            to={{
+              pathname: "/result",
+              country: country,
+              region: region,
+              venueType: venueType
+            }}
+          >
             <button className="exploreButton">
               <span className="buttonText">Go</span>{" "}
             </button>
