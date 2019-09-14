@@ -2,26 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
 .bg {
   background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
     url("./images/cityscape.jpg");
@@ -34,16 +14,7 @@
 
 Navbar {
   position: absolute;
-
   background-color: transparent !important;
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 /* new added styles */
@@ -77,6 +48,9 @@ Navbar {
 html,
 body {
   height: 100%;
+  /* background: linear-gradient(rgba(79, 78, 78, 0.55), rgba(79, 79, 79, 0.6)); */
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("./images/cityscape.jpg");
 }
 body {
   margin: 0;
@@ -90,7 +64,7 @@ body {
   justify-content: center;
 }
 .dashboard {
-  width: 40%;
+  width: 60%;
   border: 1px solid #282c34;
   border-radius: 5px;
   padding: 2em;
@@ -103,11 +77,14 @@ body {
   border-radius: 5px;
   margin: 0 auto;
   display: flex;
+  width: 50%;
 }
 .buttonText {
   font-family: "Leckerli One", cursive;
   font-size: 22px;
   color: rgb(0, 0, 0);
+  text-align: center;
+  margin: 0 auto;
 }
 /* .flex-item {
   background-color: tomato;
@@ -123,31 +100,45 @@ body {
 } */
 
 /* ======================================== result js style ================================*/
+.content {
+  margin: 0 auto;
+  padding-top: 0.5em;
+  padding-bottom: 0.5app-titleem;
+}
 .list {
   background: #fff;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
-  padding: 20px;
-  position: absolute;
+  background: rgba(16, 16, 16, 0.8);
+  border-radius: 15px;
+  color: #fff;
+  padding: 10px;
+  /* position: absolute; */
   -ms-transform: translate(-260px, 0);
   -webkit-transform: translate(-260px, 0);
   transform: translate(-300px, 0);
   transition: transform 0.5s ease;
-  width: 260px;
-  height: 100vh;
+  /* width: 260px; */
+  /* height: 100vh; */
+  /* margin-right: .3em; */
   z-index: 5;
 }
 
 .map {
   height: 100vh;
+  border-radius: 15px;
+  border: 1px solid #282c34;
+  /* margin-left: 0 !important; */
 }
 
 .app-title {
-  color: #4e595d;
+  /* color: #4e595d;
   font-family: "Source Sans Pro", sans-serif;
   margin: 10px 0;
   font-size: 24px;
+  text-align: center; */
+  font-family: "Leckerli One", cursive;
   text-align: center;
+  font-size: 24px;
+  color: rgb(234, 255, 0) !important;
 }
 
 .fs-logo {
@@ -157,7 +148,7 @@ body {
 }
 
 .places-list {
-  height: 380px;
+  /* height: 380px; */
   list-style-type: none;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -169,11 +160,11 @@ body {
 }
 
 .search-places {
-  width: 190px;
+  /* width: 190px; */
   padding: 10px 10px 10px 50px;
   background-image: url("./images/search.svg");
   background-repeat: no-repeat;
-  background-position: 20px center;
+  /* background-position: 20px center; */
   background-size: 1.2em;
   font-size: 1.2em;
   border: 1;
@@ -191,14 +182,14 @@ body {
 }
 
 .error {
-  color: #360dec;
+  color: #d8113f;
   font-style: italic;
   padding-top: 400px;
   text-align: center;
 }
 
 .empty-input {
-  color: #360dec;
+  color: #d8113f;
   font-style: italic;
   text-align: center;
 }
@@ -211,7 +202,7 @@ body {
   position: absolute;
   right: 10px;
   top: 10px;
-  width: 40px;
+  /* width: 40px; */
   z-index: 5;
 }
 
@@ -222,11 +213,12 @@ body {
 }
 
 .loading-map {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
   text-align: center;
+  padding: 0.2em; */
 }
 
 .loading-fs {
@@ -305,7 +297,7 @@ body {
 }
 
 .venue-error {
-  color: #360dec;
+  color: #d8113f;
   text-align: center;
 }
 
@@ -321,9 +313,9 @@ body {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
   }
-  .map {
+  /* .map {
     margin-left: 300px;
-  }
+  } */
   .toggle {
     display: none;
   }

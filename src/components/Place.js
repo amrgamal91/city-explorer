@@ -7,8 +7,10 @@ class Place extends Component {
     listOpen: PropTypes.bool.isRequired
   };
 
+  /**
+   * force marker click
+   * */
   showInfo = () => {
-    // force marker click
     window.google.maps.event.trigger(this.props.place.marker, "click");
   };
 

@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import scriptLoader from "react-async-script-loader";
 import { MAP_KEY } from "../data/credentials";
 import { mapStyles } from "../data/mapStyles.js";
-import PlacesList from "./PlacesList";
 import spinner from "../images/circles-loader.svg";
 import foursquare from "../images/foursquare.png";
+import PlacesListView from "./PlacesListView";
 
 class Result extends Component {
   // define the default proptypes for component
@@ -95,69 +95,76 @@ class Result extends Component {
     } = this.state;
     const { country, region, venueType } = this.props.location;
     return (
-      <div className="container row" role="main">
-        <nav id="list-toggle" className="toggle" onClick={this.toggleList}>
-          {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <div className="container content" role="main">
+        <div className="row ">
+          <nav id="list-toggle" className="toggle" onClick={this.toggleList}>
+            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"></path>
           </svg> */}
-        </nav>
-        <div>Country selected : {country}</div>
-        <div>Region selected : {region}</div>
-        <div>Venue selected : {venueType}</div>
+          </nav>
 
-        <section
-          id="venues-list"
-          className={listOpen ? "list open col-md-4" : "list col-md-4"}
-          role="complementary"
-          tabIndex={listOpen ? "0" : "-1"}
-        >
-          {/* todo:change title to be dynamic */}
-          <h1 className="app-title">
-            {venueType} in {region} {country}
-          </h1>
-          <hr />
-          {/* render markers only when map has loaded */
-          mapReady ? (
-            <PlacesList
-              map={map}
-              infowindow={infowindow}
-              bounds={bounds}
-              mapCenter={mapCenter}
-              toggleList={this.toggleList}
-              listOpen={listOpen}
-              region={region}
-              country={country}
-              venueType={venueType}
-            />
-          ) : (
-            // Show error message id map didn't load
-            <p>
-              We are experiencing loading issues. Please check your internet
-              connection
-            </p>
-          )}
-          {/* todo: add link to my linkedin  */}
-          <h3>Created By AmrGamal</h3>
-          <img src={foursquare} className="fs-logo" alt="foursquare" />
-        </section>
+          <div
+            id="venues-list"
+            className={
+              listOpen
+                ? "list open col-10 col-sm-10 col-md-4 col-lg-4 order-1 "
+                : "list  col-10 col-sm-10 col-md-4 col-lg-4 order-1"
+            }
+            role="complementary"
+            tabIndex={listOpen ? "0" : "-1"}
+          >
+            {/* todo:change title to be dynamic */}
+            <h1 className="app-title">
+              {venueType} in {region} {country}
+            </h1>
+            <hr />
+            {/* render markers only when map has loaded */
+            mapReady ? (
+              <PlacesListView
+                map={map}
+                infowindow={infowindow}
+                bounds={bounds}
+                mapCenter={mapCenter}
+                toggleList={this.toggleList}
+                listOpen={listOpen}
+                region={region}
+                country={country}
+                venueType={venueType}
+              />
+            ) : (
+              // Show error message id map didn't load
+              <p>
+                We are experiencing loading issues. Please check your internet
+                connection
+              </p>
+            )}
+            {/* todo: add link to my linkedin  */}
+            <h3>Created By AmrGamal</h3>
+            <img src={foursquare} className="fs-logo" alt="foursquare" />
+          </div>
 
-        <section
-          id="map"
-          className="map col-md-8 col-8 col-lg-8"
-          role="application"
-        >
-          {mapError ? ( // Show error message id map didn't load
-            <div id="map-error" className="error" role="alert">
-              Google Maps did not load. Please try again later...
-            </div>
-          ) : (
-            // load the map
-            <div className="loading-map">
-              <h4 className="loading-message">Map is loading...</h4>
-              <img src={spinner} className="spinner" alt="loading indicator" />
-            </div>
-          )}
-        </section>
+          <div
+            id="map"
+            className="map col-12 col-sm-12 col-md-8  col-lg-8 order-4"
+            role="application"
+          >
+            {mapError ? ( // Show error message id map didn't load
+              <div id="map-error" className="error" role="alert">
+                Google Maps did not load. Please try again later...
+              </div>
+            ) : (
+              // load the map
+              <div className="loading-map">
+                <h4 className="loading-message">Map is loading...</h4>
+                <img
+                  src={spinner}
+                  className="spinner"
+                  alt="loading indicator"
+                />
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     );
   }
