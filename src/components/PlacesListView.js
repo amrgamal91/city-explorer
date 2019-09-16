@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { getFSPlaces, getFSDetails } from "../apis/foursquare";
 import noImage from "../images/no-image-available.png";
 import fsButton from "../images/foursquare-button.png";
-import foodIcon from "../images/food-marker.png";
 import spinner from "../images/circles-loader.svg";
 import PropTypes from "prop-types";
 import Place from "./Place";
+import { getIcon } from "../utilities/util";
 
 class PlacesListView extends Component {
   static propTypes = {
@@ -59,13 +59,15 @@ class PlacesListView extends Component {
         lng: location.location.lng
       };
 
+      const icon = getIcon(this.props.venueType);
+      console.log("the icon : " + icon);
       //2- add marker icon for each location
       location.marker = new window.google.maps.Marker({
         position,
         map,
         title: location.name,
         id: location.id,
-        icon: foodIcon
+        icon: icon
       });
 
       bounds.extend(position);

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faCheckSquare, faCoffee } from "@fortawesome/fontawesome-free-solid";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -45,6 +48,7 @@ class Dashboard extends Component {
           <div className="row input-group mb-3">
             <label className="label  col-md-5">Venue Type</label>{" "}
             <select
+              required
               className="custom-select"
               id="inputGroupSelect01"
               value={this.state.venue}

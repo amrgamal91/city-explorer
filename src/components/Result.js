@@ -102,45 +102,42 @@ class Result extends Component {
             <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"></path>
           </svg> */}
           </nav>
-
-          <div
-            id="venues-list"
-            className={
-              listOpen
-                ? "list open col-10 col-sm-10 col-md-4 col-lg-4 order-1 "
-                : "list  col-10 col-sm-10 col-md-4 col-lg-4 order-1"
-            }
-            role="complementary"
-            tabIndex={listOpen ? "0" : "-1"}
-          >
-            {/* todo:change title to be dynamic */}
-            <h1 className="app-title">
-              {venueType} in {region} {country}
-            </h1>
-            <hr />
-            {/* render markers only when map has loaded */
-            mapReady ? (
-              <PlacesListView
-                map={map}
-                infowindow={infowindow}
-                bounds={bounds}
-                mapCenter={mapCenter}
-                toggleList={this.toggleList}
-                listOpen={listOpen}
-                region={region}
-                country={country}
-                venueType={venueType}
-              />
-            ) : (
-              // Show error message id map didn't load
-              <p>
-                We are experiencing loading issues. Please check your internet
-                connection
-              </p>
-            )}
-            {/* todo: add link to my linkedin  */}
-            <h3>Created By AmrGamal</h3>
-            <img src={foursquare} className="fs-logo" alt="foursquare" />
+          <div className="col-10 col-sm-10 col-md-4 col-lg-4 order-1">
+            <div
+              id="venues-list"
+              className={listOpen ? "list open mr-2" : "list  mr-2"}
+              role="complementary"
+              tabIndex={listOpen ? "0" : "-1"}
+            >
+              {/* todo:change title to be dynamic */}
+              <h1 className="app-title">
+                {venueType} in {region} {country}
+              </h1>
+              <hr />
+              {/* render markers only when map has loaded */
+              mapReady ? (
+                <PlacesListView
+                  map={map}
+                  infowindow={infowindow}
+                  bounds={bounds}
+                  mapCenter={mapCenter}
+                  toggleList={this.toggleList}
+                  listOpen={listOpen}
+                  region={region}
+                  country={country}
+                  venueType={venueType}
+                />
+              ) : (
+                // Show error message id map didn't load
+                <p>
+                  We are experiencing loading issues. Please check your internet
+                  connection
+                </p>
+              )}
+              {/* todo: add link to my linkedin  */}
+              <h3>Created By AmrGamal</h3>
+              <img src={foursquare} className="fs-logo" alt="foursquare" />
+            </div>
           </div>
 
           <div
@@ -154,7 +151,7 @@ class Result extends Component {
               </div>
             ) : (
               // load the map
-              <div className="loading-map">
+              <div className="loading-map ml-2">
                 <h4 className="loading-message">Map is loading...</h4>
                 <img
                   src={spinner}
