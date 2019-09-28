@@ -2,6 +2,7 @@
   "name": "city-explorer",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://amrgamal91.github.io/city-explorer",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-regular": "^5.0.13",
@@ -12,6 +13,7 @@
     "bootstrap": "^4.3.1",
     "bootstrap-select-country": "^4.1.0",
     "font-awesome": "^4.7.0",
+    "gh-pages": "^2.1.1",
     "jquery": "^3.4.1",
     "react": "^16.9.0",
     "react-async-script-loader": "^0.3.0",
@@ -26,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
