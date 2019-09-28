@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 class Place extends Component {
   static propTypes = {
-    place: PropTypes.object.isRequired,
-    listOpen: PropTypes.bool.isRequired
+    place: PropTypes.object.isRequired
+    // listOpen: PropTypes.bool.isRequired
   };
 
   /**
@@ -23,7 +23,7 @@ class Place extends Component {
           onClick={this.showInfo}
           onKeyPress={this.showInfo}
           role="button"
-          tabIndex={listOpen ? "0" : "-1"}
+          // tabIndex={listOpen ? "0" : "-1"}
         >
           {place.name}
         </div>

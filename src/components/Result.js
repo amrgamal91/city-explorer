@@ -35,7 +35,44 @@ class Result extends Component {
     window.addEventListener("resize", this.updateWidth);
   }
 
-  componentWillReceiveProps({ isScriptLoadSucceed }) {
+  /**
+   * instead of componentWillReceiveProps (deprecated)
+   * check if map reloaded or not if so not loaded then ,
+   * initialize the map & its bound & infoWindow then upadte the state
+   * else : return error
+   */
+  // static getDerivedStateFromProps(props, state) {
+  //   // Check if script is loaded and if map is defined
+  //   // console.log("props are : " + JSON.stringify(props));
+  //   // console.log("state are : " + JSON.stringify(state));
+
+  //   if (props.isScriptLoaded && props.isScriptLoadSucceed && !state.mapReady) {
+  //     // create map
+  //     const map = new window.google.maps.Map(document.getElementById("map"), {
+  //       zoom: 12,
+  //       center: state.mapCenter,
+  //       styles: mapStyles
+  //     });
+
+  //     // set up bounds and infowindow to use later
+  //     const bounds = new window.google.maps.LatLngBounds();
+  //     const infowindow = new window.google.maps.InfoWindow({ maxWidth: 400 });
+
+  //     return {
+  //       map: map,
+  //       infowindow: infowindow,
+  //       bounds: bounds,
+  //       mapReady: true
+  //     };
+
+  //     // alert user if map request fails
+  //   } else if (!state.mapReady) {
+  //     console.log("Map did not load");
+  //     return { mapError: true };
+  //   }
+  // }
+
+  UNSAFE_componentWillReceiveProps({ isScriptLoadSucceed }) {
     // Check if script is loaded and if map is defined
     if (isScriptLoadSucceed && !this.state.mapReady) {
       // create map
@@ -47,7 +84,7 @@ class Result extends Component {
 
       // set up bounds and infowindow to use later
       const bounds = new window.google.maps.LatLngBounds();
-      const infowindow = new window.google.maps.InfoWindow({ maxWidth: 300 });
+      const infowindow = new window.google.maps.InfoWindow({ maxWidth: 400 });
 
       this.setState({
         map: map,
@@ -77,6 +114,9 @@ class Result extends Component {
 
   updateWidth = () => {
     const { map, bounds } = this.state;
+    // console.log("update width called");
+    // console.log("inner width : " + window.innerWidth);
+    // console.log("bounds : " + bounds);
     this.setState({ width: window.innerWidth });
     if (map && bounds) {
       map.fitBounds(bounds);
@@ -109,9 +149,10 @@ class Result extends Component {
               role="complementary"
               tabIndex={listOpen ? "0" : "-1"}
             >
-              {/* todo:change title to be dynamic */}
               <h1 className="app-title">
-                {venueType} in {region} {country}
+                {country
+                  ? venueType + " in " + region + country
+                  : "No places available"}
               </h1>
               <hr />
               {/* render markers only when map has loaded */
@@ -134,8 +175,16 @@ class Result extends Component {
                   connection
                 </p>
               )}
-              {/* todo: add link to my linkedin  */}
-              <h3>Created By AmrGamal</h3>
+              <h3 className="footer-signature">
+                Created By{" "}
+                <a href="https://www.linkedin.com/in/amr-gamal-11901a33/">
+                  Amr Gamal
+                </a>
+              </h3>
+              <h6 className="footer-github">
+                View Code on{" "}
+                <a href="https://github.com/amrgamal91/city-explorer">github</a>
+              </h6>
               <img src={foursquare} className="fs-logo" alt="foursquare" />
             </div>
           </div>

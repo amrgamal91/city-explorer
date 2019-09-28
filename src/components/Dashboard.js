@@ -12,28 +12,39 @@ class Dashboard extends Component {
     };
   }
 
+  /** country setter */
   selectCountry(val) {
     this.setState({ country: val });
   }
 
+  /** region setter */
   selectRegion(val) {
     this.setState({ region: val });
   }
 
-  handleVenueSelect(event) {
-    if (event.target.value === "")
-      this.setState({
-        errors: { venuetypeError: "venue type must  be selected" }
-      });
+  /** venue setter */
+  selectVenue(event) {
+    // if (event.target.value === "")
+    //   this.setState({
+    //     errors: { venuetypeError: "venue type must  be selected" }
+    //   });
     this.setState({ venueType: event.target.value });
   }
 
+  /** submits the form ;
+   * prevents the form from reloading
+   */
   submitHandler(event) {
     event.preventDefault();
   }
+
+  /** validates the 3 main inputs
+   * returns an object of 3 keys ,key for each input
+   * if there is no error then key = false ,else key = error message
+   */
   validate = ({ country, region, venueType }) => {
-    console.log("country: " + country);
-    console.log("venueType: " + this.state.venueType);
+    // console.log("country: " + country);
+    // console.log("venueType: " + this.state.venueType);
     return {
       country:
         !country || country.trim().length === 0 ? "Country is required" : false,
@@ -47,11 +58,17 @@ class Dashboard extends Component {
           : false
     };
   };
+
+  handleClick = hasErrors => {
+    if (hasErrors) {
+      return e => e.preventDefault();
+    }
+  };
   render() {
     const { country, region, venueType } = this.state;
     const errors = this.validate(this.state);
     const hasErrors = errors.country || errors.region || errors.venueType;
-    console.log("errors: " + JSON.stringify(errors));
+    // console.log("errors: " + JSON.stringify(errors));
     return (
       <div className="flex-container">
         <div className="dashboard">
@@ -102,12 +119,13 @@ class Dashboard extends Component {
                   <select
                     name="venueType-select"
                     className="custom-select"
-                    id="inputGroupSelect01"
+                    id="venueTypeSelect"
                     value={this.state.venue}
-                    onChange={this.handleVenueSelect.bind(this)}
+                    onChange={this.selectVenue.bind(this)}
                     required
+                    defaultValue={""}
                   >
-                    <option value="" selected disabled>
+                    <option value="" disabled>
                       looking for...
                     </option>
                     <option value="food">Resturants</option>
@@ -129,9 +147,9 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>{" "}
-            {/* {!errors.country && !errors.region && !errors.venueType && ( */}
             <Link
-              onClick={hasErrors && (e => e.preventDefault())}
+              //prevent the main func of Link (navigation to the second screen)
+              onClick={this.handleClick}
               to={{
                 pathname: "/result",
                 country: country,
@@ -147,7 +165,6 @@ class Dashboard extends Component {
                 <span className="buttonText">Go</span>{" "}
               </button>
             </Link>
-            {/* )} */}
           </form>
         </div>
       </div>

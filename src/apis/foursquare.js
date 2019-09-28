@@ -7,7 +7,7 @@ import { fSURL, VERS, RADIUS, CATEGORIES } from "../data/credentials";
  * preparing API request URL and then send it to fetch data
  * return the response
  */
-export const getFSPlaces = (region, country, venueType) => {
+export const getFSPlaces = (country, region, venueType) => {
   const CATEGORY_ID = CATEGORIES[venueType];
   const requestURL = `${fSURL}search?near=${region},${country}&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&v=${VERS}&categoryId=${CATEGORY_ID}&radius=${RADIUS}&limit=50`;
 
@@ -19,7 +19,7 @@ export const getFSPlaces = (region, country, venueType) => {
     })
     .then(data => {
       const places = data.response.venues;
-      console.log("places count = " + places.length);
+      // console.log("places count = " + places.length);
       places.sort(sortName);
       return places;
     });
