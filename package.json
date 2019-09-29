@@ -2,7 +2,6 @@
   "name": "city-explorer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://amrgamal91.github.io/city-explorer",
   "homepage": "https://amrgamal91.github.io/Top-Movies/",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
@@ -14,7 +13,6 @@
     "bootstrap": "^4.3.1",
     "bootstrap-select-country": "^4.1.0",
     "font-awesome": "^4.7.0",
-    "gh-pages": "^2.1.1",
     "jquery": "^3.4.1",
     "react": "^16.9.0",
     "react-async-script-loader": "^0.3.0",
@@ -47,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   }
 }
