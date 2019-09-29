@@ -2,7 +2,7 @@
   "name": "city-explorer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://amrgamal91.github.io/Top-Movies/",
+  "homepage": "https://amrgamal91.github.io/city-explorer/",
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-regular": "^5.0.13",
