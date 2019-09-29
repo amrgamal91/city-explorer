@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/city-explorer/static/css/main.b1305924.chunk.css",
-    "main.js": "/city-explorer/static/js/main.d4cf2851.chunk.js",
-    "main.js.map": "/city-explorer/static/js/main.d4cf2851.chunk.js.map",
-    "runtime~main.js": "/city-explorer/static/js/runtime~main.14014ac5.js",
-    "runtime~main.js.map": "/city-explorer/static/js/runtime~main.14014ac5.js.map",
-    "static/js/2.54ebb145.chunk.js": "/city-explorer/static/js/2.54ebb145.chunk.js",
-    "static/js/2.54ebb145.chunk.js.map": "/city-explorer/static/js/2.54ebb145.chunk.js.map",
-    "index.html": "/city-explorer/index.html",
-    "precache-manifest.cab8784426f5aaefdd4282889e950d6a.js": "/city-explorer/precache-manifest.cab8784426f5aaefdd4282889e950d6a.js",
-    "service-worker.js": "/city-explorer/service-worker.js",
-    "static/css/main.b1305924.chunk.css.map": "/city-explorer/static/css/main.b1305924.chunk.css.map",
-    "static/media/circles-loader.svg": "/city-explorer/static/media/circles-loader.1cbd2e08.svg",
-    "static/media/App.css": "/city-explorer/static/media/search.e70cb847.svg",
-    "static/media/foursquare.png": "/city-explorer/static/media/foursquare.e7dda514.png"
+    "main.css": "/Top-Movies/static/css/main.9ec425fc.chunk.css",
+    "main.js": "/Top-Movies/static/js/main.1253cf4b.chunk.js",
+    "main.js.map": "/Top-Movies/static/js/main.1253cf4b.chunk.js.map",
+    "runtime~main.js": "/Top-Movies/static/js/runtime~main.72dcc010.js",
+    "runtime~main.js.map": "/Top-Movies/static/js/runtime~main.72dcc010.js.map",
+    "static/js/2.54ebb145.chunk.js": "/Top-Movies/static/js/2.54ebb145.chunk.js",
+    "static/js/2.54ebb145.chunk.js.map": "/Top-Movies/static/js/2.54ebb145.chunk.js.map",
+    "index.html": "/Top-Movies/index.html",
+    "precache-manifest.5c2d7114bbdf0db7aabd502a4c4bffad.js": "/Top-Movies/precache-manifest.5c2d7114bbdf0db7aabd502a4c4bffad.js",
+    "service-worker.js": "/Top-Movies/service-worker.js",
+    "static/css/main.9ec425fc.chunk.css.map": "/Top-Movies/static/css/main.9ec425fc.chunk.css.map",
+    "static/media/circles-loader.svg": "/Top-Movies/static/media/circles-loader.1cbd2e08.svg",
+    "static/media/App.css": "/Top-Movies/static/media/search.e70cb847.svg",
+    "static/media/foursquare.png": "/Top-Movies/static/media/foursquare.e7dda514.png"
   }
 }
