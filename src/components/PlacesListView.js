@@ -60,7 +60,7 @@ class PlacesListView extends Component {
       };
 
       const icon = getIcon(this.props.venueType);
-      console.log("the icon : " + icon);
+      // console.log("the icon : " + icon);
       //2- add marker icon for each location
       location.marker = new window.google.maps.Marker({
         position,
@@ -99,10 +99,10 @@ class PlacesListView extends Component {
       getFSDetails(marker.id)
         .then(data => {
           const singlePlace = data.response.venue;
-          console.log(
-            "here the details of the place : " +
-              JSON.stringify(data.response.venue)
-          );
+          // console.log(
+          //   "here the details of the place : " +
+          //     JSON.stringify(data.response.venue)
+          // );
           const {
             canonicalUrl,
             bestPhoto,

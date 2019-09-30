@@ -8,6 +8,7 @@ import foursquare from "../images/foursquare.png";
 import PlacesListView from "./PlacesListView";
 
 class Result extends Component {
+  _isMounted = false;
   // define the default proptypes for component
   static propTypes = {
     map: PropTypes.object,
@@ -32,7 +33,16 @@ class Result extends Component {
 
   // using the component life cycle
   componentDidMount() {
-    window.addEventListener("resize", this.updateWidth);
+    this._isMounted = true;
+    // console.log("is mounted : " + this._isMounted);
+    if (this._isMounted) {
+      window.addEventListener("resize", this.updateWidth);
+    }
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+    // console.log("is mounted : " + this._isMounted);
   }
 
   /**
@@ -114,9 +124,6 @@ class Result extends Component {
 
   updateWidth = () => {
     const { map, bounds } = this.state;
-    // console.log("update width called");
-    // console.log("inner width : " + window.innerWidth);
-    // console.log("bounds : " + bounds);
     this.setState({ width: window.innerWidth });
     if (map && bounds) {
       map.fitBounds(bounds);
@@ -142,7 +149,7 @@ class Result extends Component {
             <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"></path>
           </svg> */}
           </nav>
-          <div className="col-10 col-sm-10 col-md-4 col-lg-4 order-1">
+          <div className="col-12 col-sm-12 col-md-4 col-lg-4 order-1">
             <div
               id="venues-list"
               className={listOpen ? "list open mr-2" : "list  mr-2"}
@@ -191,7 +198,7 @@ class Result extends Component {
 
           <div
             id="map"
-            className="map col-12 col-sm-12 col-md-8  col-lg-8 order-4"
+            className="map col-11 col-sm-11 col-md-8  col-lg-8 order-4"
             role="application"
           >
             {mapError ? ( // Show error message id map didn't load
