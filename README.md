@@ -30,4 +30,6 @@ A new browser window should automatically open displaying the app. If it doesn't
 
 ## Screenshots
 
-![first-screenshot](/screenshots/1.png "Optional Title")
+![first-screenshot](/screenshots/1.png "first-screenshot")
+![second-screenshot](/screenshots/2.png "second-screenshot")
+![third-screenshot](/screenshots/3.png "third-screenshot")
