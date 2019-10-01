@@ -59,16 +59,21 @@ class Dashboard extends Component {
     };
   };
 
+  /** handles the go button click
+   * only if errors exist then prevent its default behavior
+   */
   handleClick = hasErrors => {
     if (hasErrors) {
       return e => e.preventDefault();
     }
   };
+
   render() {
     const { country, region, venueType } = this.state;
     const errors = this.validate(this.state);
     const hasErrors = errors.country || errors.region || errors.venueType;
     // console.log("errors: " + JSON.stringify(errors));
+
     return (
       <div className="flex-container">
         <div className="dashboard">

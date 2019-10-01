@@ -92,15 +92,15 @@ Navbar {
   color: #fff;
   padding: 10px;
   position: relative;
-  -ms-transform: translate(-260px, 0);
-  -webkit-transform: translate(-260px, 0);
-  transform: translate(-300px, 0);
-  transition: transform 0.5s ease;
-  z-index: 5;
   border: 3px solid rgb(234, 255, 0);
   outline: rgb(234, 255, 0);
   min-height: 100%;
   margin-bottom: 15px;
+  /* -ms-transform: translate(-260px, 0);
+  -webkit-transform: translate(-260px, 0);
+  transform: translate(-300px, 0);
+  transition: transform 0.5s ease;
+  z-index: 5; */
 }
 
 .list:active,

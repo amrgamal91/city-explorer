@@ -26,12 +26,14 @@ class Result extends Component {
     infowindow: {},
     bounds: {},
     mapReady: false,
-    mapCenter: { lat: 29.341, lng: 48.0893 }, // for future use when add location search
+    mapCenter: { lat: 29.341, lng: 48.0893 },
     mapError: false,
     width: window.innerWidth
   };
 
-  // using the component life cycle
+  /** add resize listener on mounting
+   * bugFix: use isMounted to prevent setstate to unmounted component warning
+   */
   componentDidMount() {
     this._isMounted = true;
     // console.log("is mounted : " + this._isMounted);
@@ -40,6 +42,7 @@ class Result extends Component {
     }
   }
 
+  /** mark component as unmounted */
   componentWillUnmount() {
     this._isMounted = false;
     // console.log("is mounted : " + this._isMounted);
@@ -144,11 +147,11 @@ class Result extends Component {
     return (
       <div className="container content" role="main">
         <div className="row ">
-          <nav id="list-toggle" className="toggle" onClick={this.toggleList}>
-            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"></path>
-          </svg> */}
-          </nav>
+          {/* <nav id="list-toggle" className="toggle" onClick={this.toggleList}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"></path>
+            </svg>
+          </nav> */}
           <div className="col-12 col-sm-12 col-md-4 col-lg-4 order-1">
             <div
               id="venues-list"
@@ -158,7 +161,7 @@ class Result extends Component {
             >
               <h1 className="app-title">
                 {country
-                  ? venueType + " in " + region + country
+                  ? venueType + " in " + region + "," + country
                   : "No places available"}
               </h1>
               <hr />

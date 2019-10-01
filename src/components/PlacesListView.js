@@ -190,10 +190,10 @@ class PlacesListView extends Component {
     </a>`;
   }
 
-  showInfo = place => {
-    // force marker click
-    window.google.maps.event.trigger(place.marker, "click");
-  };
+  /** force marker click */
+  // showInfo = place => {
+  //   window.google.maps.event.trigger(place.marker, "click");
+  // };
 
   /**
    * it returns the places that matches the search query
